@@ -1,0 +1,47 @@
+%h1 Listing tanf_forms
+
+%table
+  %tr
+    %th State
+    %th Department name
+    %th Street address one
+    %th Street address two
+    %th City
+    %th Zip code
+    %th Phone number
+    %th Fax number
+    %th Program benefits
+    %th General eligibility
+    %th Application info
+    %th Citizenship info
+    %th Form url two
+    %th Form url three
+    %th Link one
+    %th
+    %th
+    %th
+
+  - @tanf_forms.each do |tanf_form|
+    %tr
+      %td= tanf_form.state_id
+      %td= tanf_form.department_name
+      %td= tanf_form.street_address_one
+      %td= tanf_form.street_address_two
+      %td= tanf_form.city
+      %td= tanf_form.zip_code
+      %td= tanf_form.phone_number
+      %td= tanf_form.fax_number
+      %td= tanf_form.program_benefits
+      %td= tanf_form.general_eligibility
+      %td= tanf_form.application_info
+      %td= tanf_form.citizenship_info
+      %td= tanf_form.form_url_two
+      %td= tanf_form.form_url_three
+      %td= tanf_form.link_one
+      %td= link_to 'Show', tanf_form
+      %td= link_to 'Edit', edit_tanf_form_path(tanf_form)
+      %td= link_to 'Destroy', tanf_form, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Tanf form', new_tanf_form_path

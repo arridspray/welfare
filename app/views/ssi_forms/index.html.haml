@@ -1,0 +1,47 @@
+%h1 Listing ssi_forms
+
+%table
+  %tr
+    %th State
+    %th Department name
+    %th Street address one
+    %th Street address two
+    %th City
+    %th Zip code
+    %th Phone number
+    %th Fax number
+    %th Program benefits
+    %th General eligibility
+    %th Application info
+    %th Citizenship info
+    %th Form url two
+    %th Form url three
+    %th Link one
+    %th
+    %th
+    %th
+
+  - @ssi_forms.each do |ssi_form|
+    %tr
+      %td= ssi_form.state_id
+      %td= ssi_form.department_name
+      %td= ssi_form.street_address_one
+      %td= ssi_form.street_address_two
+      %td= ssi_form.city
+      %td= ssi_form.zip_code
+      %td= ssi_form.phone_number
+      %td= ssi_form.fax_number
+      %td= ssi_form.program_benefits
+      %td= ssi_form.general_eligibility
+      %td= ssi_form.application_info
+      %td= ssi_form.citizenship_info
+      %td= ssi_form.form_url_two
+      %td= ssi_form.form_url_three
+      %td= ssi_form.link_one
+      %td= link_to 'Show', ssi_form
+      %td= link_to 'Edit', edit_ssi_form_path(ssi_form)
+      %td= link_to 'Destroy', ssi_form, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Ssi form', new_ssi_form_path

@@ -1,0 +1,187 @@
+.container
+  .span4
+    #logo
+      = image_tag "logo2.png"
+  .span8
+    #about
+      .row
+        .span_nav_head
+          #{link_to "About Our Company"}
+        .span_nav_head_center
+          %center
+            #{link_to "Our Mission"}
+        .span_nav_head
+          #{link_to "Advertise at WelfareUSA.org"}
+      %br/
+      %br/
+    #homepage_search
+      = form_tag root_path, :class => 'form-stacked', :method => :get do
+        .row
+          .well.form-search
+            .span_nav_search
+              = text_field_tag :search, params[:search], :class => "search-query", :placeholder => "Search"
+            .span4
+              = select_tag(:state_id, options_for_select(State.all.map {|p|[p.state_name, p.id]}, params[:state_id].to_i), {:prompt => 'Select State'})
+              = submit_tag "Search", :name => nil, :class => "btn btn-info"
+
+.container
+  = render "navigation"
+  .row
+  .slideshow_frame
+    .inner.clearfix
+      #featureImage
+        #featured.pl
+          %ul.ui-tabs-nav
+            %li#nav-fragment-1.ui-tabs-nav-item.ui-tabs-selected
+              %a.fragment-1{:href => "javascript:"}
+                %span Safer Drivers Shorter Lines
+            %li#nav-fragment-2.ui-tabs-nav-item
+              %a.fragment-2{:href => "javascript:"}
+                %span Compare Car Insurance
+            %li#nav-fragment-3.ui-tabs-nav-item
+              %a.fragment-3{:href => "javascript:"}
+                %span Check Your Driving Record
+            %li#nav-fragment-4.ui-tabs-nav-item
+              %a.fragment-4{:href => "javascript:"}
+                %span Take an Online Practice Test
+          / First Content
+          #fragment-1.ui-tabs-panel{:style => ""}
+            %a{:href => "http://www.dmv.org/our-company/overview.php"}
+              = image_tag "feature-1.jpg"
+            .info
+          / Second Content
+          #fragment-2.ui-tabs-panel.ui-tabs-hide{:style => ""}
+            %a{:href => "http://www.dmv.org/car-insurance.php"}
+              = image_tag "feature-4.jpg"
+            .info
+          / Third Content
+          #fragment-3.ui-tabs-panel.ui-tabs-hide{:style => ""}
+            %a{:href => "http://www.dmv.org/driving-records.php"}
+              = image_tag "feature-2.jpg"
+            .info
+          / Fourth Content
+          #fragment-4.ui-tabs-panel.ui-tabs-hide{:style => ""}
+            %a{:href => "http://www.dmv.org/practice-tests/"}
+              = image_tag "feature-3.jpg"
+            .info
+      #helper
+        %h2 What Can We Help You With?
+        .helperNav
+          %ul
+            %li.license
+              %a{:href => "http://www.dmv.org/drivers-license.php", :title => "Drivers Licenses"} Drivers Licenses
+            %li.registration
+              %a{:href => "http://www.dmv.org/vehicle-registration.php", :title => "Vehicle Registration & Titling"} Vehicle Registration & Titling
+            %li.buying
+              %a{:href => "http://www.dmv.org/buy-sell/", :title => "Buying or Selling a Car"} Buying or Selling a Car
+            %li.tickets
+              %a{:href => "http://www.dmv.org/tickets-violations.php", :title => "Tickets, Violations & Accidents"} Tickets, Violations & Accidents
+            %li.office
+              %a{:href => "http://www.dmv.org/dmv-office-finder.php", :title => "DMV Office Hours, Address, Phone"} DMV Office Hours, Address, Phone
+
+  %br/
+  .tab_frame
+    .span12
+      %ul.thumbnails
+        %li.span_pitch
+          %h5#clean
+            Benefits Office Finder
+            %center
+              %br/
+              = image_tag "pitch-1.png"
+            %br/
+          .caption
+            %ul
+              %li
+                = link_to "Appointmnets"
+              %li
+                = link_to "Schedule a Consultation"
+              %li
+                = link_to "Office Phone Numbers"
+        %li.span_pitch
+          %h5#clean
+            Forms & Publications
+            %center
+              %br/
+              = image_tag "pitch-2.png"
+            %br/
+          .caption
+            %ul
+              %li
+                = link_to "WIC Forms"
+              %li
+                = link_to "Section 8 Forms"
+              %li
+                = link_to "Unemployment Forms"
+        %li.span_pitch
+          %h5#clean
+            State-By-State Guide
+            %center
+              %br/
+              = image_tag "pitch-3.png"
+            %br/
+          .caption
+            %ul
+              %li
+                = link_to "New York Guide"
+              %li
+                = link_to "Texas Guide"
+              %li
+                = link_to "California Guide"
+
+        %li.span_pitch_last
+          %h5#clean
+            Rules & Regulations
+            %center
+              %br/
+              = image_tag "pitch-4.png"
+            %br/
+          .caption
+            %ul
+              %li
+                = link_to "Welfare Laws"
+              %li
+                = link_to "Public Housing Laws"
+              %li
+                = link_to "Unemployment Laws"
+  = image_tag "as-seen-on.r8049.gif"
+  .mission_statement
+    .dmvSimple
+      %h2 The Unofficial Welfare Guide
+      %p DMV.org is a privately owned organization that simplifies government-related info across all states. We created this mega-resource not because we love the DMV, but because we grew tired of standing in long lines at the  motor vehicle agencies. In addition to gathering the most accurate information, we cut to the chase and offer our users easy-to-understand, useful details on handling DMV-related business. This includes what you need to know for applying for a  driver's license, renewing your vehicle registration, obtaining your driving record and much more.
+      %p The coolest thing we do involves utilizing the latest technology to create a positive user experience. We're not even  government employees. In fact, we are technology idealists who want to make the Web a better space. Our team thrives on problem solving, innovating and collectively coming up with online tools that give our users the best resource on the Web. Want to save time and skip the hassle? Check out DMV.org and let us know what you think.
+  %br/
+  .states
+    %br/
+    #mainContent.byLocation
+      .inner.clearfix
+        %h3
+          .span1
+            = image_tag "united_states_small.png"
+          .span_find
+            Find Information by Location:
+          .span1
+            = select_tag(:state_id, options_for_select(State.all.map {|p|[p.state_name, p.id]}, params[:state_id].to_i), {:prompt => 'Select State'})
+    .span10
+      %br/
+      %table
+        - @states.each_slice(7) do |states|
+          %tr
+            - states.each do  |state|
+              %td{:width => "400"}
+                = link_to state.state_name, root_path
+
+
+
+:javascript
+  function makeTabs(div){
+      $("ul > li > a",div).click(function(){
+          $(".ui-tabs-nav-item",div).removeClass("ui-tabs-selected");
+          $("#nav-"+this.className,div).addClass("ui-tabs-selected");
+          $(".ui-tabs-panel",div).addClass("ui-tabs-hide");
+          $("#"+this.className,div).css({opacity:0}).removeClass("ui-tabs-hide").animate({opacity:1});
+      });
+  }
+  $(document).ready(function(){
+      var ftabs = new makeTabs($("#featured"));
+  })

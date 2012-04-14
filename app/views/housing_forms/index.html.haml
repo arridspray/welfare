@@ -1,0 +1,47 @@
+%h1 Listing housing_forms
+
+%table
+  %tr
+    %th State
+    %th Department name
+    %th Street address one
+    %th Street address two
+    %th City
+    %th Zip code
+    %th Phone number
+    %th Fax number
+    %th Program benefits
+    %th General eligibility
+    %th Application info
+    %th Citizenship info
+    %th Form url two
+    %th Form url three
+    %th Link one
+    %th
+    %th
+    %th
+
+  - @housing_forms.each do |housing_form|
+    %tr
+      %td= housing_form.state_id
+      %td= housing_form.department_name
+      %td= housing_form.street_address_one
+      %td= housing_form.street_address_two
+      %td= housing_form.city
+      %td= housing_form.zip_code
+      %td= housing_form.phone_number
+      %td= housing_form.fax_number
+      %td= housing_form.program_benefits
+      %td= housing_form.general_eligibility
+      %td= housing_form.application_info
+      %td= housing_form.citizenship_info
+      %td= housing_form.form_url_two
+      %td= housing_form.form_url_three
+      %td= housing_form.link_one
+      %td= link_to 'Show', housing_form
+      %td= link_to 'Edit', edit_housing_form_path(housing_form)
+      %td= link_to 'Destroy', housing_form, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Housing form', new_housing_form_path

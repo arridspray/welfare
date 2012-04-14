@@ -1,0 +1,47 @@
+%h1 Listing unemployment_forms
+
+%table
+  %tr
+    %th State
+    %th Department name
+    %th Street address one
+    %th Street address two
+    %th City
+    %th Zip code
+    %th Phone number
+    %th Fax number
+    %th Program benefits
+    %th General eligibility
+    %th Application info
+    %th Citizenship info
+    %th Form url two
+    %th Form url three
+    %th Link one
+    %th
+    %th
+    %th
+
+  - @unemployment_forms.each do |unemployment_form|
+    %tr
+      %td= unemployment_form.state_id
+      %td= unemployment_form.department_name
+      %td= unemployment_form.street_address_one
+      %td= unemployment_form.street_address_two
+      %td= unemployment_form.city
+      %td= unemployment_form.zip_code
+      %td= unemployment_form.phone_number
+      %td= unemployment_form.fax_number
+      %td= unemployment_form.program_benefits
+      %td= unemployment_form.general_eligibility
+      %td= unemployment_form.application_info
+      %td= unemployment_form.citizenship_info
+      %td= unemployment_form.form_url_two
+      %td= unemployment_form.form_url_three
+      %td= unemployment_form.link_one
+      %td= link_to 'Show', unemployment_form
+      %td= link_to 'Edit', edit_unemployment_form_path(unemployment_form)
+      %td= link_to 'Destroy', unemployment_form, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Unemployment form', new_unemployment_form_path

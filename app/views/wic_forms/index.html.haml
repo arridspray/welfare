@@ -1,0 +1,47 @@
+%h1 Listing wic_forms
+
+%table
+  %tr
+    %th State
+    %th Department name
+    %th Street address one
+    %th Street address two
+    %th City
+    %th Zip code
+    %th Phone number
+    %th Fax number
+    %th Program benefits
+    %th General eligibility
+    %th Application info
+    %th Citizenship info
+    %th Form url two
+    %th Form url three
+    %th Link one
+    %th
+    %th
+    %th
+
+  - @wic_forms.each do |wic_form|
+    %tr
+      %td= wic_form.state_id
+      %td= wic_form.department_name
+      %td= wic_form.street_address_one
+      %td= wic_form.street_address_two
+      %td= wic_form.city
+      %td= wic_form.zip_code
+      %td= wic_form.phone_number
+      %td= wic_form.fax_number
+      %td= wic_form.program_benefits
+      %td= wic_form.general_eligibility
+      %td= wic_form.application_info
+      %td= wic_form.citizenship_info
+      %td= wic_form.form_url_two
+      %td= wic_form.form_url_three
+      %td= wic_form.link_one
+      %td= link_to 'Show', wic_form
+      %td= link_to 'Edit', edit_wic_form_path(wic_form)
+      %td= link_to 'Destroy', wic_form, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Wic form', new_wic_form_path

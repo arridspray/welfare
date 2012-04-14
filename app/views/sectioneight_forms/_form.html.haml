@@ -1,0 +1,55 @@
+= form_for @sectioneight_form do |f|
+  -if @sectioneight_form.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@sectioneight_form.errors.count, "error")} prohibited this sectioneight_form from being saved:"
+      %ul
+        - @sectioneight_form.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :state_id
+    = f.number_field :state_id
+  .field
+    = f.label :department_name
+    = f.text_field :department_name
+  .field
+    = f.label :street_address_one
+    = f.text_field :street_address_one
+  .field
+    = f.label :street_address_two
+    = f.text_field :street_address_two
+  .field
+    = f.label :city
+    = f.text_field :city
+  .field
+    = f.label :zip_code
+    = f.text_field :zip_code
+  .field
+    = f.label :phone_number
+    = f.text_field :phone_number
+  .field
+    = f.label :fax_number
+    = f.text_field :fax_number
+  .field
+    = f.label :program_benefits
+    = f.text_area :program_benefits
+  .field
+    = f.label :general_eligibility
+    = f.text_area :general_eligibility
+  .field
+    = f.label :application_info
+    = f.text_area :application_info
+  .field
+    = f.label :citizenship_info
+    = f.text_field :citizenship_info
+  .field
+    = f.label :form_url_two
+    = f.text_field :form_url_two
+  .field
+    = f.label :form_url_three
+    = f.text_field :form_url_three
+  .field
+    = f.label :link_one
+    = f.text_field :link_one
+  .actions
+    = f.submit 'Save'

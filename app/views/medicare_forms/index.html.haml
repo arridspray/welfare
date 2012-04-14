@@ -1,0 +1,47 @@
+%h1 Listing medicare_forms
+
+%table
+  %tr
+    %th State
+    %th Department name
+    %th Street address one
+    %th Street address two
+    %th City
+    %th Zip code
+    %th Phone number
+    %th Fax number
+    %th Program benefits
+    %th General eligibility
+    %th Application info
+    %th Citizenship info
+    %th Form url two
+    %th Form url three
+    %th Link one
+    %th
+    %th
+    %th
+
+  - @medicare_forms.each do |medicare_form|
+    %tr
+      %td= medicare_form.state_id
+      %td= medicare_form.department_name
+      %td= medicare_form.street_address_one
+      %td= medicare_form.street_address_two
+      %td= medicare_form.city
+      %td= medicare_form.zip_code
+      %td= medicare_form.phone_number
+      %td= medicare_form.fax_number
+      %td= medicare_form.program_benefits
+      %td= medicare_form.general_eligibility
+      %td= medicare_form.application_info
+      %td= medicare_form.citizenship_info
+      %td= medicare_form.form_url_two
+      %td= medicare_form.form_url_three
+      %td= medicare_form.link_one
+      %td= link_to 'Show', medicare_form
+      %td= link_to 'Edit', edit_medicare_form_path(medicare_form)
+      %td= link_to 'Destroy', medicare_form, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Medicare form', new_medicare_form_path

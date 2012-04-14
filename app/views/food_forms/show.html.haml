@@ -1,0 +1,118 @@
+.container
+  %br/
+  .span4
+    #logo_form
+      = image_tag "logo2.png"
+  .span8
+    #homepage_search
+      = form_tag root_path, :class => 'form-stacked', :method => :get do
+        .row
+          .well.form-search
+            .span_nav_search
+              = text_field_tag :search, params[:search], :class => "search-query", :placeholder => "Search"
+            .span4
+              = select_tag(:state_id, options_for_select(State.all.map {|p|[p.state_name, p.id]}, params[:state_id].to_i), {:prompt => 'Select State'})
+              = submit_tag "Search", :name => nil, :class => "btn btn-info"
+
+.container
+  = render "navigation"
+.container
+  .row
+    .span_form
+      %br/
+      %h2
+        #{@food_form.state.state_name} Nutrition Assistance Program
+      %br/
+      %h4
+        How can this program help me?
+      %p
+        #{@food_form.program_benefits}
+      %br/
+      %h4
+        Can I apply?
+      %p
+        #{@food_form.general_eligibility}
+      %br/
+      %h4
+        What are the citizenship requirements?
+      %p
+        #{@food_form.general_eligibility}
+      %br/
+      %h4
+        How do I apply?
+      %p
+        #{@food_form.application_info}
+    .span4
+      %br/
+      %br/
+      %br/
+      .span_box
+        %h3{:align => "center"}
+          Web Resources
+        %br/
+        .row
+          .span_icon
+            = image_tag "apply.gif"
+          .span1
+            %p
+              #{@food_form.link_one}
+        .row
+          .span_icon
+            = image_tag "link_go.gif"
+          .span1
+            %p
+              #{@food_form.link_one}
+        .row
+          .span_icon
+            = image_tag "house_snap.gif"
+          .span1
+            %p
+              #{@food_form.link_one}
+
+        %br/
+        %br/
+      .span_box
+        %h3{:align => "center"}
+          Application Forms
+        %br/
+        .row
+          .span_icon
+            = image_tag "pdf.gif"
+          .span1
+            %p
+              #{@food_form.link_one}
+        .row
+          .span_icon
+            = image_tag "pdf.gif"
+          .span1
+            %p
+              #{@food_form.link_one}
+        .row
+          .span_icon
+            = image_tag "pdf.gif"
+          .span1
+            %p
+              #{@food_form.link_one}
+        %p
+          %b
+            %br/
+            Call your State Hotline to find out where to send the application.
+  .states
+    %br/
+    #mainContent.byLocation
+      .inner.clearfix
+        %h3
+          .span1
+            = image_tag "united_states_small.png"
+          .span_find
+            Find Information by Location:
+          .span1
+            = select_tag(:state_id, options_for_select(State.all.map {|p|[p.state_name, p.id]}, params[:state_id].to_i), {:prompt => 'Select State'})
+    .span10
+      %br/
+      %table
+        - @states.each_slice(7) do |states|
+          %tr
+            - states.each do  |state|
+              %td{:width => "400"}
+                = link_to state.state_name, root_path

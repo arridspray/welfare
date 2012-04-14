@@ -1,0 +1,47 @@
+%h1 Listing sectioneight_forms
+
+%table
+  %tr
+    %th State
+    %th Department name
+    %th Street address one
+    %th Street address two
+    %th City
+    %th Zip code
+    %th Phone number
+    %th Fax number
+    %th Program benefits
+    %th General eligibility
+    %th Application info
+    %th Citizenship info
+    %th Form url two
+    %th Form url three
+    %th Link one
+    %th
+    %th
+    %th
+
+  - @sectioneight_forms.each do |sectioneight_form|
+    %tr
+      %td= sectioneight_form.state_id
+      %td= sectioneight_form.department_name
+      %td= sectioneight_form.street_address_one
+      %td= sectioneight_form.street_address_two
+      %td= sectioneight_form.city
+      %td= sectioneight_form.zip_code
+      %td= sectioneight_form.phone_number
+      %td= sectioneight_form.fax_number
+      %td= sectioneight_form.program_benefits
+      %td= sectioneight_form.general_eligibility
+      %td= sectioneight_form.application_info
+      %td= sectioneight_form.citizenship_info
+      %td= sectioneight_form.form_url_two
+      %td= sectioneight_form.form_url_three
+      %td= sectioneight_form.link_one
+      %td= link_to 'Show', sectioneight_form
+      %td= link_to 'Edit', edit_sectioneight_form_path(sectioneight_form)
+      %td= link_to 'Destroy', sectioneight_form, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Sectioneight form', new_sectioneight_form_path

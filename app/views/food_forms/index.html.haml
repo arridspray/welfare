@@ -1,0 +1,47 @@
+%h1 Listing food_forms
+
+%table
+  %tr
+    %th State
+    %th Department name
+    %th Street address one
+    %th Street address two
+    %th City
+    %th Zip code
+    %th Phone number
+    %th Fax number
+    %th Program benefits
+    %th General eligibility
+    %th Application info
+    %th Citizenship info
+    %th Form url two
+    %th Form url three
+    %th Link one
+    %th
+    %th
+    %th
+
+  - @food_forms.each do |food_form|
+    %tr
+      %td= food_form.state_id
+      %td= food_form.department_name
+      %td= food_form.street_address_one
+      %td= food_form.street_address_two
+      %td= food_form.city
+      %td= food_form.zip_code
+      %td= food_form.phone_number
+      %td= food_form.fax_number
+      %td= food_form.program_benefits
+      %td= food_form.general_eligibility
+      %td= food_form.application_info
+      %td= food_form.citizenship_info
+      %td= food_form.form_url_two
+      %td= food_form.form_url_three
+      %td= food_form.link_one
+      %td= link_to 'Show', food_form
+      %td= link_to 'Edit', edit_food_form_path(food_form)
+      %td= link_to 'Destroy', food_form, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Food form', new_food_form_path
